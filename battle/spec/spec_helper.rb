@@ -4,6 +4,22 @@
 # this file to always be loaded, without a need to explicitly require it in any
 # files.
 #
+
+ENV['RACK_ENV'] = 'test'
+
+# require our Sinatra app file
+
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+
+require 'capybara'
+
+require 'capybara/rspec'
+
+require 'rspec'
+
+# tell Capybara about our app class
+Capybara.app = Battle
+
 # Given that it is always loaded, you are encouraged to keep this file as
 # light-weight as possible. Requiring heavyweight dependencies from this file
 # will add to the boot time of your test suite on EVERY test run, even for an
